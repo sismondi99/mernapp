@@ -1,6 +1,8 @@
 
 body {
     background-color: #BEBEBE;
+    /* padding: 0;
+    margin: 0; */
   }
 
 .logo {
@@ -10,3 +12,75 @@ footer{
   background-color: aquamarine;
 }
 
+.background {
+  color: hsl(324, 70%, 45%);
+  animation: wheelHueColor 10s infinite;
+  background-color: currentColor;
+}
+@supports (background-blend-mode: overlay) {
+  .background {
+    background-image: linear-gradient(45deg, white 10%, black 90%);
+    background-blend-mode: overlay;
+  }
+}
+@keyframes wheelHueColor {
+  from, to { color: hsl(324, 70%, 45%); }
+  10%      { color: hsl(360, 65%, 45%); }
+  20%      { color: hsl( 36, 80%, 45%); }
+  30%      { color: hsl( 72, 75%, 35%); }
+  40%      { color: hsl(108, 65%, 35%); }
+  50%      { color: hsl(144, 75%, 35%); }
+  60%      { color: hsl(180, 75%, 35%); }
+  70%      { color: hsl(216, 60%, 45%); }
+  80%      { color: hsl(252, 65%, 50%); }
+  90%      { color: hsl(288, 60%, 40%); }
+}
+
+
+/* misc */
+* { margin: 0; padding: 0; }
+.background {
+  min-height: 100vh;
+  display: flex;
+}
+.text {
+  margin: auto;
+  background: rgba(0,0,0,.75);
+  padding: 1em;
+}
+
+.box{
+	position:absolute;
+	  height:100%;
+	  width:100%;
+	  font-family:Helvetica;
+	  color:#fff;
+	  background:rgba(0,0,0,0.13);
+	  padding:30px 0px;
+}
+
+.box input{
+	display:block;
+	  width:300px;
+	  margin:20px auto;
+	  padding:15px;
+	  background:rgba(0,0,0,0.2);
+	  color:#fff;
+	  border:0;
+}
+
+.button button{
+  background:#2ecc71;
+  border:0;
+  color:#fff;
+  padding:10px;
+  font-size:20px;
+  width:330px;
+  margin:20px auto;
+  display:block;
+  cursor:pointer;
+}
+
+a button:active{
+	background:#27ae60;
+}

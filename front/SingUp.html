@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link href="css/styles.css" rel="stylesheet" />
+		<h1>Achat/Revente</h1>
+	</head>
+	
+	<body>
+		<div class="background">
+				<h2>Formualaire d'inscription</h2>
+				<form action="page_connexion" method="post">
+					<div class="box">
+						<input type="text" id="nom" name="util_nom" placeholder="Nom"/>
+						<input type="text" id="prenom" name="util_prenom" placeholder="Prenom"/>
+						<input type="text" id="pseudo" name="util_pseudo" placeholder="Pseudo"/>
+						<input type="text" id="email" name="util_email" placeholder="eMail"/>
+						<label for="choix">Type de compte</label>
+						<select id="typeCompte">
+							<option value="client">Client</option>
+							<option value="vendeur">Vendeur</option>
+							<option value="na" selected>N/A</option>
+						</select>
+					
+						<div class="button">
+							<a href="CoVendeur.html">
+								<button id="suivant" type="button" onclick="">Suivant</button>
+							</a>
+						</div>
+					</div>
+					
+				</form>
+		</div>
+	</body>
+	
+	<footer>
+		<p>Copyright @2022</p>
+	</footer>
+</html>
