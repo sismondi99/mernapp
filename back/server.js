@@ -2,10 +2,21 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+// const app = require("./app");
+
+//On définit notre objet express nommé app
+const app = express();
+
+//Body Parser
+const urlencodedParser = bodyParser.urlencoded({
+    extended: true
+  });
+  app.use(urlencodedParser);
+  app.use(bodyParser.json());
 
 //Connexion à la base de donnée
 mongoose
-  .connect("mongodb://localhost/db")
+  .connect("mongodb+srv://sismondi:bonjour1e@express.coygs.mongodb.net/marketplace?retryWrites=true&w=majority")
   .then(() => {
     console.log("Connected to mongoDB");
   })
@@ -13,17 +24,6 @@ mongoose
     console.log("Error while DB connecting");
     console.log(e);
   });
-
-//On définit notre objet express nommé app
-const app = express();
-
-//Body Parser
-const urlencodedParser = bodyParser.urlencoded({
-  extended: true
-});
-app.use(urlencodedParser);
-
-app.use(bodyParser.json());
 
 //Définition des CORS
 app.use(function(req, res, next) {
@@ -41,9 +41,16 @@ app.use(function(req, res, next) {
 });
 
 //Définition du routeur
+
 const router = express.Router();
 app.use("/user", router);
 require(__dirname + "/controllers/userController")(router);
+
+
+
+// app.get('/hello', function(req,res){
+//     res.json("Hello World")
+// })
 
 //Définition et mise en place du port d'écoute
 const port = 8800;
