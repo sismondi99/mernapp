@@ -2,10 +2,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const path = require("path");
+var fs = require('fs');
 // const app = require("./app");
-
+const RouteProducts = require('./router/product')
 //On définit notre objet express nommé app
 const app = express();
+
 
 //Body Parser
 const urlencodedParser = bodyParser.urlencoded({
@@ -13,6 +16,7 @@ const urlencodedParser = bodyParser.urlencoded({
   });
   app.use(urlencodedParser);
   app.use(bodyParser.json());
+  
 
 //Connexion à la base de donnée
 mongoose
@@ -46,11 +50,33 @@ const router = express.Router();
 app.use("/user", router);
 require(__dirname + "/controllers/userController")(router);
 
+app.use('/api/products/', RouteProducts);
 
+// app.use(express.static(__dirname+'./front/images'));
+
+// app.use('./images',express.static(path.join(__dirname,'./front/images')));
+
+app.use(express.static('./front')); 
+app.use('/images', express.static('images'));
 
 // app.get('/hello', function(req,res){
 //     res.json("Hello World")
 // })
+
+app.get('/main', function(req, res) {
+
+  fs.readFile('../front/produits.html', function(error, content) {
+      if (error) {
+          res.writeHead(500);
+          res.end();
+      }
+      else {
+          res.writeHead(200, { 'Content-Type': 'text/html' });
+          res.end(content, 'utf-8');
+      }
+  });
+
+});
 
 //Définition et mise en place du port d'écoute
 const port = 8800;

@@ -9,28 +9,40 @@
 	<body>
 		<section class="container-fluid col-4 mx-auto bg-success">
 			<div class="mx-auto pt-3 pos"><a class="navbar-brand" href="produits.html"><img alt="Logo" src="images/logo.png" class="pull-left logo"></a></div>
-			<h2 class="py-3 pos">CONNEXION</h2>
-			<form class="mt-5">
+			<h2 class="py-3 pos">INSCRIPTION</h2>
+			<form class="">
+				<div class="mb-3">
+					<label for="nameInput" class="form-label">Votre nom</label>
+					<input type="text" class="form-control" id="nameInput" placeholder="Nom Prenom">
+				</div>
                 <div class="mb-3">
 					<label for="mailInput" class="form-label">Adresse e-mail ou identifiant</label>
 					<input type="text" class="form-control" id="mailInput">
-				  </div>
-				  <div class="mb-3">
+				</div>
+				<div class="mb-3">
 					<label for="password" class="form-label">Mot de passe</label>
 					<input type="text" class="form-control" id="password">
-				  </div>
+				</div>
+				<div class="mb-3">
+					<label for="password" class="form-label">confirmation du mot de passe</label>
+					<input type="text" class="form-control" id="password">
+				</div>
+					<div class="form-check">
+					  <input class="form-check-input" type="checkbox" id="gridCheck">
+					  <label class="form-check-label" for="gridCheck">
+						Vendeur
+					  </label>
+					</div>
                 <div class="pos">
-				<a href="#accueil.html" class="btn btn-warning stretched-link">Se connecter</a> 
+				<a href="#accueil.html" class="btn btn-warning stretched-link">S'inscrire</a> 
 			</div>
               </form>
 
 			  <div class="d-grid gap-2 col-6 mx-auto my-5 py-5">
-				<label for="inputinfo" class="col-form-label text-center">Nouveau sur le site ?</label>
-				<a href="#signup.html" class="btn btn-primary stretched-link">Créer votre compte</a>
+				<label for="inputinfo" class="col-form-label text-center">Vous avez déjà un compte ?</label>
+				<a href="#login.html" class="btn btn-primary stretched-link">Se connecter</a>
 			  </div>	
 			</section>
-
-
 
 		<!-- Optional JavaScript; choose one of the two! -->
 		<script src="js/script.js"></script>
@@ -40,6 +52,5 @@
 	
 	</body>
 	
-	<footer>
-	</footer>
+
 </html>
