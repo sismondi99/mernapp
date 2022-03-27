@@ -18,7 +18,7 @@ const urlencodedParser = bodyParser.urlencoded({
   app.use(bodyParser.json());
   
 
-//Connexion à la base de donnée
+//Connexion à la base de données
 mongoose
   .connect("mongodb+srv://sismondi:bonjour1e@express.coygs.mongodb.net/marketplace?retryWrites=true&w=majority")
   .then(() => {
@@ -52,16 +52,10 @@ require(__dirname + "/controllers/userController")(router);
 
 app.use('/api/products/', RouteProducts);
 
-// app.use(express.static(__dirname+'./front/images'));
-
-// app.use('./images',express.static(path.join(__dirname,'./front/images')));
 
 app.use(express.static('./front')); 
 app.use('/images', express.static('images'));
 
-// app.get('/hello', function(req,res){
-//     res.json("Hello World")
-// })
 
 app.get('/main', function(req, res) {
 
