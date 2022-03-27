@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
 var fs = require('fs');
+const url = require('url');
+const http = require('http');
 // const app = require("./app");
 const RouteProducts = require('./router/product')
 //On définit notre objet express nommé app
@@ -52,11 +54,7 @@ require(__dirname + "/controllers/userController")(router);
 
 app.use('/api/products/', RouteProducts);
 
-
-app.use(express.static('./front')); 
-app.use('/images', express.static('images'));
-
-
+//ouverture de la page
 app.get('/main', function(req, res) {
 
   fs.readFile('../front/produits.html', function(error, content) {
@@ -71,6 +69,7 @@ app.get('/main', function(req, res) {
   });
 
 });
+
 
 //Définition et mise en place du port d'écoute
 const port = 8800;
